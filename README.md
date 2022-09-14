@@ -1,2 +1,2 @@
 # CSE248
-## subtitle
+## lecture
