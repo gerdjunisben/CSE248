@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="/control/FirstSceneController">
+   <children>
+      <Button id="addToBag" layoutX="200.0" layoutY="268.0" mnemonicParsing="false" text="Send to Bag" />
+      <TextField id="InputField" layoutX="125.0" layoutY="124.0" />
+      <TextField id="OutputField" layoutX="125.0" layoutY="174.0" />
+      <Button id="ChangeSceneButtonClicked" layoutX="89.0" layoutY="268.0" mnemonicParsing="false" text="Change Scene" />
+   </children>
+</AnchorPane>
