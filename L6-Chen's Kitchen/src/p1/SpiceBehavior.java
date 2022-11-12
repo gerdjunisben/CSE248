@@ -1,5 +1,7 @@
 package p1;
 
 public interface SpiceBehavior {
-	void spice();
+	String spice();
+	
+	String toString();
 }

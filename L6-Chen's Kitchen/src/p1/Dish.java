@@ -16,9 +16,9 @@ public abstract class Dish {
 	}
 	
 	
-	public void cook()
+	public String cook()
 	{
-		cookBehavior.cook();
+		return cookBehavior.cook();
 	}
 	
 	public void setSpiceBehavior(SpiceBehavior spiceBehavior)
@@ -26,22 +26,24 @@ public abstract class Dish {
 		this.spiceBehavior = spiceBehavior;
 	}
 	
-	public void spice()
+	public String spice()
 	{
-		spiceBehavior.spice();
+		return spiceBehavior.spice();
 	}
 	
-	public void recipe()
+	public String recipe()
 	{
-		System.out.print(name +" ");
-		cook();
-		System.out.print(" with ");
-		spice();
-		System.out.println(".");
+		
+		return name + " " + cook() + " with " + spice() + ".";
 	}
 	
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+	
+	public String toString()
+	{
+		return name;
 	}
 }

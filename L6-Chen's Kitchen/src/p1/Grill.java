@@ -4,9 +4,14 @@ public class Grill implements CookBehavior
 {
 
 	
-	public void cook() 
+	public String cook() 
 	{
-		System.out.print("grilled");
+		return "grilled";
+	}
+	
+	public String toString()
+	{
+		return "grill";
 	}
 	
 }

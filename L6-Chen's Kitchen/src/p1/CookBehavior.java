@@ -1,5 +1,7 @@
 package p1;
 
 public interface CookBehavior {
-	void cook();
+	String cook();
+	
+	String toString();
 }
