@@ -28,6 +28,8 @@
     <fullyQualifiedTypeName name="javafx.scene.Scene"/>
     <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
-    <fullyQualifiedTypeName name="p1.Boil"/>
     <fullyQualifiedTypeName name="p1.Beef"/>
+    <fullyQualifiedTypeName name="p1.Llama"/>
+    <fullyQualifiedTypeName name="p1.Chicken"/>
+    <fullyQualifiedTypeName name="p1.Boil"/>
 </qualifiedTypeNameHistroy>

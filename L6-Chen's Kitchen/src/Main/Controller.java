@@ -14,12 +14,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import p1.Beef;
 import p1.Boil;
+import p1.Chicken;
 import p1.Cinnamon;
 import p1.CookBehavior;
 import p1.Dish;
 import p1.Fish;
 import p1.Garlic;
 import p1.Grill;
+import p1.Llama;
 import p1.SpiceBehavior;
 
 public class Controller implements Initializable {
@@ -45,7 +47,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url,ResourceBundle resourceBundle)
     {
-    	Dish[] dishes = {new Fish(),new Beef()};
+    	Dish[] dishes = {new Fish(),new Beef(),new Chicken(),new Llama()};
     	CookBehavior[] cooks = {new Grill(),new Boil()};
     	SpiceBehavior[] spices = {new Cinnamon(),new Garlic()};
     	MeatBox.setItems(FXCollections.observableArrayList(dishes));
