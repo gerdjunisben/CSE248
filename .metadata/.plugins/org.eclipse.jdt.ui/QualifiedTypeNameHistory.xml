@@ -32,4 +32,7 @@
     <fullyQualifiedTypeName name="p1.Llama"/>
     <fullyQualifiedTypeName name="p1.Chicken"/>
     <fullyQualifiedTypeName name="p1.Boil"/>
+    <fullyQualifiedTypeName name="java.util.Observer"/>
+    <fullyQualifiedTypeName name="java.beans.PropertyChangeSupport"/>
+    <fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
 </qualifiedTypeNameHistroy>

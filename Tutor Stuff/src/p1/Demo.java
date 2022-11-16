@@ -6,14 +6,13 @@ public class Demo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s1 = "stopsigK";
-		switch(s1.toLowerCase())
+		int rnd;
+		for(int x =0;x<100;x++)
 		{
-		case("stopsign"):
-		
-			System.out.println("ok");
-			break;
+			rnd = (int) (Math.random()*4) +1;
+			System.out.println(rnd);
 		}
+		
 		
 	}
 
