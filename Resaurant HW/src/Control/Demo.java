@@ -18,7 +18,7 @@ public class Demo extends Application {
 
 		//--module-path "C:\Program Files\Java\Javafx-sdk-17.0.1\lib" --add-modules=javafx.controls,javafx.fxml
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("View/View.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../View/View.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();

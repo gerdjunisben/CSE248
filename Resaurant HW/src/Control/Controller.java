@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import Kitchen.Chef;
 import Kitchen.Record;
 import Register.Cashier;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,29 +57,50 @@ public class Controller  implements Initializable  {
 		
 		chef.addPropertyChangeListener(cashier);
 		waiter.addPropertyChangeListener(chef);
+		
+		CookBox.valueProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				// TODO Auto-generated method stub
+				Record record = waiter.getRecord();
+		    	Record newRecord = new Record(record.getDish(),CookBox.getValue(),record.getSpice());
+		    	waiter.setRecord(newRecord);
+			}
+	    	
+		});
+		
+		MeatBox.valueProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				// TODO Auto-generated method stub
+				Record record = waiter.getRecord();
+		    	Record newRecord = new Record(MeatBox.getValue(),record.getCook(),record.getSpice());
+		    	waiter.setRecord(newRecord);
+			}
+	    	
+		});
+		
+		SpiceBox.valueProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				// TODO Auto-generated method stub
+				Record record = waiter.getRecord();
+		    	Record newRecord = new Record(record.getDish(),record.getCook(),SpiceBox.getValue());
+		    	waiter.setRecord(newRecord);
+			}
+	    	
+		});
     }
     
     @FXML
-    void cookIt(ActionEvent event) {
+    public void cookIt(ActionEvent event) {
 		ChefText.appendText(chef.newDish());
 		CashierText.appendText("$" + cashier.getBill());
     }
     
-    @FXML
-    void cookChange(ActionEvent event) {
-    	waiter.setRecord(waiter.getRecord().setCook(CookBox.getValue()));
-    }
-
-
-    @FXML
-    void meatChange(ActionEvent event) {
-    	waiter.setRecord(waiter.getRecord().setDish(MeatBox.getValue()));
-    }
-
-    @FXML
-    void spiceChange(ActionEvent event) {
-    	waiter.setRecord(waiter.getRecord().setSpice(SpiceBox.getValue()));
-    }
+    
+    
+ 
 
 }
 
