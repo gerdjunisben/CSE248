@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.Controller">
+   <children>
+      <Pane prefHeight="475.0" prefWidth="578.0">
+         <children>
+            <ComboBox fx:id="MeatBox" layoutX="35.0" layoutY="182.0" onAction="#meatChange" prefHeight="9.0" prefWidth="88.0" />
+            <ComboBox fx:id="CookBox" layoutX="139.0" layoutY="182.0" onAction="#cookChange" prefHeight="25.0" prefWidth="88.0" />
+            <ComboBox fx:id="SpiceBox" layoutX="243.0" layoutY="182.0" onAction="#spiceChange" prefHeight="25.0" prefWidth="88.0" />
+            <Button fx:id="MakeButton" layoutX="349.0" layoutY="182.0" mnemonicParsing="false" onAction="#cookIt" prefHeight="25.0" prefWidth="144.0" text="Cook it" />
+            <TextArea fx:id="ChefText" layoutX="23.0" layoutY="331.0" prefHeight="107.0" prefWidth="212.0" />
+            <TextArea fx:id="CashierText" layoutX="349.0" layoutY="331.0" prefHeight="107.0" prefWidth="212.0" />
+            <Label layoutX="21.0" layoutY="292.0" prefHeight="25.0" prefWidth="212.0" text="Chef" />
+            <Label layoutX="349.0" layoutY="292.0" prefHeight="25.0" prefWidth="212.0" text="Cashier" />
+            <Label layoutX="35.0" layoutY="145.0" prefHeight="25.0" prefWidth="88.0" text="Meat" />
+            <Label layoutX="139.0" layoutY="145.0" prefHeight="25.0" prefWidth="88.0" text="Cook Type" />
+            <Label layoutX="245.0" layoutY="145.0" prefHeight="25.0" prefWidth="88.0" text="Spice" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
