@@ -94,6 +94,8 @@ public class Controller  implements Initializable  {
     
     @FXML
     public void cookIt(ActionEvent event) {
+    	ChefText.clear();
+    	CashierText.clear();
 		ChefText.appendText(chef.newDish());
 		CashierText.appendText("$" + cashier.getBill());
     }
