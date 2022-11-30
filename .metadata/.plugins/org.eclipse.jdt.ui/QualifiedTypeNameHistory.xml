@@ -33,7 +33,6 @@
     <fullyQualifiedTypeName name="java.util.Observer"/>
     <fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="Cooks.CookBehavior"/>
     <fullyQualifiedTypeName name="Spices.SpiceDecorator"/>
     <fullyQualifiedTypeName name="Kitchen.Record"/>
@@ -44,4 +43,6 @@
     <fullyQualifiedTypeName name="Dishes.Dish"/>
     <fullyQualifiedTypeName name="java.beans.PropertyChangeSupport"/>
     <fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>
