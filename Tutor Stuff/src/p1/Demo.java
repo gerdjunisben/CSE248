@@ -1,15 +1,24 @@
 package p1;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JOptionPane;
 
 public class Demo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		List<String> l = new ArrayList<>();
+		String s = "";
+		for(int i=167;i!=0;i/=16)
+		{
+			if(i%16<=9)
+			{
+				s = (i%16)+ s ;
+			}
+			else
+			{
+				s= (char)('A' + i -10) + s;
+			}
+		}
+		System.out.println(s);
+		
 
 		
 		

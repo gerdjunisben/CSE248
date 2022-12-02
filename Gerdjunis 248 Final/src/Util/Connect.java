@@ -1,4 +1,4 @@
-package p1;
+package Util;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -6,10 +6,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import Model.College;
 
 public class Connect {
 	public static URL url;
@@ -27,14 +30,11 @@ public class Connect {
 			
 		
 			
-			statement.executeUpdate("DROP TABLE IF EXISTS Colleges"); 
+			statement.executeUpdate("DROP TABLE IF EXISTS colleges"); 
 			statement.executeUpdate(
-			"CREATE TABLE Colleges" +
-			"(ID VARCAR(50) PRIMARY KEY," +
-			"Name VARCAR(50)," +
-			"City VARCAR(50)," +
-			"Zip VARCAR(50)" +
-			")");
+			"CREATE TABLE colleges (ID varchar(255) PRIMARY KEY, Name varchar(255), "+
+			"City varchar(255), Zip varchar(255),Admission DOUBLE(5,2),Completion DOUBLE(5,2),"+
+			"InState INT(10),OutState INT(10))");
 			
 			Scanner scanner = new Scanner(url.openStream());
 			while(scanner.hasNextLine())
@@ -67,12 +67,15 @@ public class Connect {
 						String cityName = cityNode.asText().replace("'", "");
 						JsonNode zipNode = jsonNameNode.get("school.zip");
 						String collegeName = nameNode.asText().replace("'", "");
-						//System.out.println(collegeName);
+						JsonNode admissionNode = jsonNameNode.get("latest.admissions.admission_rate.overall");
+						JsonNode completionNode = jsonNameNode.get("latest.completion.completion_rate_4yr_150nt");
+						JsonNode inStateNode = jsonNameNode.get("latest.cost.tuition.in_state");
+						JsonNode outStateNode = jsonNameNode.get("latest.cost.tuition.out_of_state");
 						statement.executeUpdate(
-								"INSERT INTO Colleges"+
-								"(ID,Name,City,Zip)" +
-								"VALUES('"+idNode.asInt()+"','"+collegeName+"','"+cityName+"','"+zipNode.asText()+"')"
-								);
+						"INSERT INTO colleges (ID,Name,City,Zip,Admission,Completion,InState,OutState) "+
+						"VALUES ('"+idNode.asInt()+"','"+collegeName+"','"+cityName+"','"+zipNode.asText()+"','"+
+						admissionNode.asDouble()+"','"+completionNode.asDouble()+"','"+inStateNode.asInt()+"','"+
+						outStateNode.asInt()+"')");
 					}
 					
 				}
@@ -100,31 +103,34 @@ public class Connect {
 		}
 	}
 	
-	public static void printTable()
+	
+	public static LinkedList<College> getCollegesAll()
 	{
 		Statement statement;
+		LinkedList<College> list = new LinkedList<>();
 		try {
 			statement = db.createStatement();
 			statement.setQueryTimeout(30);
-			ResultSet rs = statement.executeQuery("SELECT * FROM Colleges");
+			ResultSet rs = statement.executeQuery("SELECT * FROM colleges");
 			
 			while(rs.next())
 			{
 
-				System.out.print(rs.getString("ID") + " ");
-				System.out.print(rs.getString("Name")+ " ");
-				System.out.print(rs.getString("City")+ " ");
-				System.out.print(rs.getString("Zip"));
-				System.out.println();
+				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState")));
+				
+				
 			}
+			return list;
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 		
 		
 		
 	}
+	
 	
 	public static void setQuery(String query)
 	{

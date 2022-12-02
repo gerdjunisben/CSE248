@@ -13,7 +13,6 @@
     <fullyQualifiedTypeName name="p1.SpiceBehavior"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
     <fullyQualifiedTypeName name="Control.Controller"/>
     <fullyQualifiedTypeName name="p1.Fish"/>
@@ -45,4 +44,7 @@
     <fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="Model.College"/>
 </qualifiedTypeNameHistroy>
