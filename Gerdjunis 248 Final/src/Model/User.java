@@ -1,26 +1,30 @@
 package Model;
 
+import java.util.LinkedList;
+
 public class User {
     private String username;
-    private int saveID;
+    private LinkedList<Integer> list;
+    
 
     
 
-    public User(String username,  int saveID)
+    public User(String username)
     {
         this.username = username;
-        this.saveID = saveID;
     }
 
     public String getUsername()
     {
         return username;
     }
-
-    public int getSaveID()
+    
+    public void addCollege(int id)
     {
-        return saveID;
+    	list.add(id);
     }
+
+    
 
     public String toString()
     {

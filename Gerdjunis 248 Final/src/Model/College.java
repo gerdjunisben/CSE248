@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.LinkedList;
+
 public class College {
     private String id;
     private String name;
@@ -83,6 +85,8 @@ public class College {
     {
         this.outStateTuition = outStateTuition;
     }
+    
+    
 
     public String toString()
     {

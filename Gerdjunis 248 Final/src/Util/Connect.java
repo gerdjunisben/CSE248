@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -13,15 +14,19 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Model.College;
+import Model.User;
 
 public class Connect {
 	public static URL url;
 	public static Connection db;
 	public static String cQuery;
+	
+	
 	public static void fillDataBase() 
 	{
 		try
 		{
+			setConnection("colleges.sqlite");
 			setURL(cQuery);
 			Statement statement = db.createStatement();
 			statement.setQueryTimeout(30);
@@ -103,9 +108,61 @@ public class Connect {
 		}
 	}
 	
+	public static int signIn(String username,String password)
+	{
+		setConnection("users.sqlite");
+		
+		try {
+			Statement statement = db.createStatement();
+			statement.setQueryTimeout(30);
+			ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE username='" + username+"'");
+			if(rs.next())
+			{
+				if(rs.getString("password").equals(password))
+				{
+					return rs.getInt("id");
+				}
+			}
+			else
+			{
+				System.out.println("User doesn't exist");
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public static void addUser(String username,String password)
+	{
+		setConnection("users.sqlite");
+		
+		try {
+			Statement statement = db.createStatement();
+			statement.setQueryTimeout(30);
+			ResultSet rs = statement.executeQuery("SELECT * FROM users WHERE username='" + username+"'");
+			
+			if(!rs.next())
+			{
+				statement.executeUpdate(
+						"INSERT INTO users (username,password) "+
+						"VALUES ('"+username+"','"+password+"')");
+			}
+			else
+			{
+				System.out.println("User already exists");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public static LinkedList<College> getCollegesAll()
 	{
+		setConnection("colleges.sqlite");
 		Statement statement;
 		LinkedList<College> list = new LinkedList<>();
 		try {
