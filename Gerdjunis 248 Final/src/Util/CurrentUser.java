@@ -12,9 +12,17 @@ public class CurrentUser {
 		this.user = user;
 	}
 	
-	private static void makeUser(User user)
+	public static CurrentUser makeUser(User user)
 	{
-		currentUser = new CurrentUser(user);
+		if(currentUser==null)
+			return new CurrentUser(user);
+		else
+			return currentUser;
+	}
+	
+	public String toString()
+	{
+		return user.toString();
 	}
 	
 	

@@ -26,7 +26,6 @@ public class Connect {
 	{
 		try
 		{
-			setConnection("colleges.sqlite");
 			setURL(cQuery);
 			Statement statement = db.createStatement();
 			statement.setQueryTimeout(30);
@@ -37,9 +36,36 @@ public class Connect {
 			
 			statement.executeUpdate("DROP TABLE IF EXISTS colleges"); 
 			statement.executeUpdate(
-			"CREATE TABLE colleges (ID varchar(255) PRIMARY KEY, Name varchar(255), "+
+			"CREATE TABLE colleges (ID INT(20) PRIMARY KEY, Name varchar(255), "+
 			"City varchar(255), Zip varchar(255),Admission DOUBLE(5,2),Completion DOUBLE(5,2),"+
 			"InState INT(10),OutState INT(10))");
+			
+			/*
+			statement.executeUpdate("DROP TABLE IF EXISTS users"); 
+			statement.executeUpdate(
+			"CREATE TABLE users ("
+			+ "username	VARCHAR(255),"
+			+ "password VARCHAR(255),"
+			+ "id INTEGER PRIMARY KEY AUTOINCREMENT"
+			+ ")");
+			
+			statement.executeUpdate("DROP TABLE IF EXISTS savedList"); 
+			statement.executeUpdate(
+			"CREATE TABLE savedList("
+			+ "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "save1 INT(20),"
+			+ "save2 INT(20),"
+			+ "save3 INT(20),"
+			+ "save4 INT(20),"
+			+ "save5 INT(20),"
+			+ "save6 INT(20),"
+			+ "save7 INT(20),"
+			+ "save8 INT(20),"
+			+ "save9 INT(20),"
+			+ "save10 INT(20)"
+			+ ")");
+			*/
+			
 			
 			Scanner scanner = new Scanner(url.openStream());
 			while(scanner.hasNextLine())
@@ -110,7 +136,6 @@ public class Connect {
 	
 	public static int signIn(String username,String password)
 	{
-		setConnection("users.sqlite");
 		
 		try {
 			Statement statement = db.createStatement();
@@ -135,9 +160,40 @@ public class Connect {
 		return -1;
 	}
 	
+	public static User getUser(String username,String password)
+	{
+		int id = signIn(username,password);
+		User user;
+		if(id!=-1)
+		{
+			user = new User(username);
+			
+			try {
+				Statement statement = db.createStatement();
+				statement.setQueryTimeout(30);
+				ResultSet rs = statement.executeQuery("SELECT * FROM savedList WHERE id='" + id+"'");
+				for(int i =1;i<=10;i++)
+				{
+					int save = rs.getInt("save" + i);
+					if(save!=0)
+						user.addCollege(save);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		else
+		{
+			user=null;
+		}
+		return user;
+	}
+	
 	public static void addUser(String username,String password)
 	{
-		setConnection("users.sqlite");
 		
 		try {
 			Statement statement = db.createStatement();
@@ -149,6 +205,11 @@ public class Connect {
 				statement.executeUpdate(
 						"INSERT INTO users (username,password) "+
 						"VALUES ('"+username+"','"+password+"')");
+				statement.executeUpdate(
+						"INSERT INTO savedList (save1,save2,save3,save4,save5,save6,save7,save8,save9,save10) "+
+						"VALUES ('"+0+"','"+0+"','"+0+"','"+0+
+						"','"+0+"','"+0+"','"+0+"','"+0+
+						"','"+0+"','"+0+"')");
 			}
 			else
 			{
@@ -162,7 +223,6 @@ public class Connect {
 	
 	public static LinkedList<College> getCollegesAll()
 	{
-		setConnection("colleges.sqlite");
 		Statement statement;
 		LinkedList<College> list = new LinkedList<>();
 		try {
