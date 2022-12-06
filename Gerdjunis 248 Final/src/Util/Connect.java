@@ -134,6 +134,36 @@ public class Connect {
 		}
 	}
 	
+	public static void saveUser(User user)
+	{
+		try {
+			Statement statement = db.createStatement();
+			statement.setQueryTimeout(30);
+			String s = "UPDATE savedList SET ";
+			int index =0;
+			int college = user.getCollege(index);
+			
+			while(college!=0)
+			{
+				if(index>0)
+					s+= ",";
+				s += "save" + (index+1) + "='" + user.getCollege(index) + "'";
+				
+				index++;
+				college = user.getCollege(index);
+				
+			}
+			s += " WHERE id=" +user.getID();
+			System.out.println(s);
+			statement.executeUpdate(s);
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static int signIn(String username,String password)
 	{
 		
@@ -166,7 +196,7 @@ public class Connect {
 		User user;
 		if(id!=-1)
 		{
-			user = new User(username);
+			user = new User(username,id);
 			
 			try {
 				Statement statement = db.createStatement();
@@ -220,6 +250,35 @@ public class Connect {
 		}
 	}
 	
+	public static LinkedList<College> getSomeColleges(String[] queries)
+	{
+		Statement statement;
+		LinkedList<College> list = new LinkedList<>();
+		try {
+			statement = db.createStatement();
+			statement.setQueryTimeout(30);
+			String query = "SELECT * FROM colleges WHERE";
+			for(int i =0;i<queries.length;i++)
+			{
+				query += " " + queries[0] + " AND ";
+			}
+
+			ResultSet rs = statement.executeQuery(query);
+			
+			while(rs.next())
+			{
+
+				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState")));
+				
+				
+			}
+			return list;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public static LinkedList<College> getCollegesAll()
 	{

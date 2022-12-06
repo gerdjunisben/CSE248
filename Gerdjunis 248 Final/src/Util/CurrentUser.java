@@ -20,6 +20,16 @@ public class CurrentUser {
 			return currentUser;
 	}
 	
+	public void addCollege(int collegeID)
+	{
+		user.addCollege(collegeID);
+	}
+	
+	public void save()
+	{
+		Connect.saveUser(user);
+	}
+	
 	public String toString()
 	{
 		return user.toString();

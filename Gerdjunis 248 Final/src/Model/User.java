@@ -4,15 +4,18 @@ import java.util.LinkedList;
 
 public class User {
     private String username;
+    private int id;
     private LinkedList<Integer> list;
     private int elems;
 
     
 
-    public User(String username)
+    public User(String username,int id)
     {
         this.username = username;
         elems=0;
+        this.id = id;
+        list = new LinkedList<>();
     }
 
     public String getUsername()
@@ -20,9 +23,14 @@ public class User {
         return username;
     }
     
-    public void addCollege(int id)
+    public int getID()
     {
-    	list.add(id);
+    	return id;
+    }
+    
+    public void addCollege(int collegeID)
+    {
+    	list.add(collegeID);
     	elems++;
     }
     
@@ -37,6 +45,17 @@ public class User {
     		}
     	}
     }
+    
+    public int getCollege(int index)
+    {
+    	if(elems>index)
+    		return list.get(index);
+    	else
+    		return 0;
+    	
+    }
+    
+    
 
     
 
