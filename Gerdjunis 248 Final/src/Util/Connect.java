@@ -181,6 +181,7 @@ public class Connect {
 			else
 			{
 				System.out.println("User doesn't exist");
+				return 0;
 			}
 			
 			
@@ -222,7 +223,7 @@ public class Connect {
 		return user;
 	}
 	
-	public static void addUser(String username,String password)
+	public static int addUser(String username,String password)
 	{
 		
 		try {
@@ -240,14 +241,16 @@ public class Connect {
 						"VALUES ('"+0+"','"+0+"','"+0+"','"+0+
 						"','"+0+"','"+0+"','"+0+"','"+0+
 						"','"+0+"','"+0+"')");
+				return 1;
 			}
 			else
 			{
-				System.out.println("User already exists");
+				return 0;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return -1;
 	}
 	
 	public static LinkedList<College> getSomeColleges(String[] queries)

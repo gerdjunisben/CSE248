@@ -30,8 +30,17 @@ public class User {
     
     public void addCollege(int collegeID)
     {
-    	list.add(collegeID);
-    	elems++;
+    	boolean exists = false;
+    	for(int i = 0;i<elems;i++)
+    	{
+    		if(list.get(i)==collegeID)
+    			exists = true;
+    	}
+    	if(!exists)
+    	{
+    		list.add(collegeID);
+        	elems++;
+    	}
     }
     
     public void removeCollege(int id)

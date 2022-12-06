@@ -11,14 +11,18 @@ public class Demo {
 		Connect.setConnection("colleges.sqlite");
 		//Connect.fillDataBase();
 		
+		/*
+		
 		String username = "gerdjunisben";
 		String password = "Password1";
 		
 		//Connect.addUser(username, password);
+		
 		CurrentUser cu = CurrentUser.makeUser(Connect.getUser(username,password));
 		System.out.println(cu);
 		cu.addCollege(100937);
 		cu.save();
+		*/
 		
 		/*
 		LinkedList<College> list = Connect.getCollegesAll();
