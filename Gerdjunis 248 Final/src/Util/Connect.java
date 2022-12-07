@@ -14,7 +14,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Model.College;
+import Model.Query;
 import Model.User;
+import javafx.collections.ObservableList;
 
 public class Connect {
 	public static URL url;
@@ -253,18 +255,24 @@ public class Connect {
 		return -1;
 	}
 	
-	public static LinkedList<College> getSomeColleges(String[] queries)
+	public static LinkedList<College> getSomeColleges(ObservableList<Query> observableList)
 	{
 		Statement statement;
 		LinkedList<College> list = new LinkedList<>();
 		try {
 			statement = db.createStatement();
 			statement.setQueryTimeout(30);
-			String query = "SELECT * FROM colleges WHERE";
-			for(int i =0;i<queries.length;i++)
+			String query = "SELECT * FROM colleges WHERE (";
+			for(int i =0;i<observableList.size();i++)
 			{
-				query += " " + queries[0] + " AND ";
+				query += observableList.get(i).toString();
+				if(i!=observableList.size()-1)
+				{
+					query+= " AND ";
+				}
 			}
+			query += ")";
+			System.out.println(query);
 
 			ResultSet rs = statement.executeQuery(query);
 			
