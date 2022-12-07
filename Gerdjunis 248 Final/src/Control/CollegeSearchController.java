@@ -1,11 +1,13 @@
 package Control;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 import Model.College;
 import Model.Query;
 import Util.Connect;
+import Util.CurrentUser;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +22,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CollegeSearchController implements Initializable {
 
+	@FXML
+    private Button saveButton;
+
+    @FXML
+    private TextField saveText;
+    
     @FXML
     private Button addButton;
 
@@ -43,6 +51,9 @@ public class CollegeSearchController implements Initializable {
 
     @FXML
     private TableView<Query> searchTable;
+    
+    @FXML
+    private Button showButton;
 
     @FXML
     void addClick(ActionEvent event) {
@@ -74,6 +85,8 @@ public class CollegeSearchController implements Initializable {
     	searchTable.refresh();
     	if(searchTable.getItems().size()!=0)
     		updateSearch();
+    	else
+    		listArea.getItems().clear();
     }
 
     @FXML
@@ -95,23 +108,40 @@ public class CollegeSearchController implements Initializable {
     	searchTable.refresh();
     	if(searchTable.getItems().size()!=0)
     		updateSearch();
+    	else
+    		listArea.getItems().clear();
     }
     
     public void updateSearch()
     {
+    	listArea.getItems().clear();
     	listArea.getItems().addAll(Connect.getSomeColleges(searchTable.getItems()));
     }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		attribute.setCellValueFactory(
                 new PropertyValueFactory<Query, String>("attribute"));
 		query.setCellValueFactory(
                 new PropertyValueFactory<Query, String>("query"));
-		String[] attributes = {"Id","Name","Zip","City","Admission"};
+		String[] attributes = {"Id","Name","Zip","City","Admission","Completion","InState","OutState"};
 		attributeBox.getItems().addAll(attributes);
 		
 	}
+	
+	@FXML
+    void saveClick(ActionEvent event) {
+		Connect.current.addCollege(Integer.parseInt(saveText.getText()));
+    }
+	
+	 @FXML
+	 void showClick(ActionEvent event) {
+		 listArea.getItems().clear();
+		 LinkedList<College> colleges = Connect.getSavedColleges();
+		 if(colleges!=null)
+			 listArea.getItems().addAll();
+	 }
 
 }
 

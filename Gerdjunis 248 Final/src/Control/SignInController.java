@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Util.Connect;
+import Util.CurrentUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,6 +53,8 @@ public class SignInController implements Initializable {
     	{
     		Parent root;
 			try {
+				Connect.current = CurrentUser.makeUser(Connect.getUser(usernameBox.getText(),passwordBox.getText()));
+			
 				root = FXMLLoader.load(getClass().getResource("../view/collegeSearch.fxml"));
 				Scene scene = new Scene(root);
 				Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());

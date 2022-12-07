@@ -3,6 +3,7 @@ package Control;
 import java.io.IOException;
 
 import Util.Connect;
+import Util.CurrentUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +67,8 @@ public class SignUpController {
     			}
     			else
     			{
+    				Connect.current = CurrentUser.makeUser(Connect.getUser(usernameBox.getText(),passwordBox1.getText()));
+    				
     				Parent root;
     				try {
     					root = FXMLLoader.load(getClass().getResource("../view/collegeSearch.fxml"));

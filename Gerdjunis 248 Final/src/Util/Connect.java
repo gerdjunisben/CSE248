@@ -22,6 +22,7 @@ public class Connect {
 	public static URL url;
 	public static Connection db;
 	public static String cQuery;
+	public static CurrentUser current;
 	
 	
 	public static void fillDataBase() 
@@ -271,6 +272,49 @@ public class Connect {
 					query+= " AND ";
 				}
 			}
+			query += ")";
+			System.out.println(query);
+
+			ResultSet rs = statement.executeQuery(query);
+			
+			while(rs.next())
+			{
+
+				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState")));
+				
+				
+			}
+			return list;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static LinkedList<College> getSavedColleges()
+	{
+		//infinite loop, fix
+		Statement statement;
+		LinkedList<College> list = new LinkedList<>();
+		try {
+			statement = db.createStatement();
+			statement.setQueryTimeout(30);
+			String query = "SELECT * FROM colleges WHERE (";
+			int i = 0;
+			int id=current.getCollege(i);
+			if(id==-1)
+				return null;
+			while(id!=-1)
+			{
+				query += "id="+id;
+				id = current.getCollege(++i);
+				if(id!=-1)
+				{
+					query+= " OR ";
+				}
+			}
+			
 			query += ")";
 			System.out.println(query);
 

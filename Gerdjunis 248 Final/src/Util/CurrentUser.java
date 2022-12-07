@@ -30,6 +30,11 @@ public class CurrentUser {
 		Connect.saveUser(user);
 	}
 	
+	public int getCollege(int index)
+	{
+		return user.getCollege(index);
+	}
+	
 	public String toString()
 	{
 		return user.toString();

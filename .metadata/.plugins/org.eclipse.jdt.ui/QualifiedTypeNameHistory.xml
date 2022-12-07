@@ -39,7 +39,6 @@
     <fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="Model.User"/>
     <fullyQualifiedTypeName name="javafx.scene.layout.Pane"/>
     <fullyQualifiedTypeName name="javafx.scene.Node"/>
@@ -47,7 +46,6 @@
     <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
     <fullyQualifiedTypeName name="Model.College"/>
     <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
-    <fullyQualifiedTypeName name="Util.Connect"/>
     <fullyQualifiedTypeName name="Model.Query"/>
     <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
@@ -55,4 +53,7 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="Util.CurrentUser"/>
+    <fullyQualifiedTypeName name="Util.Connect"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
 </qualifiedTypeNameHistroy>
