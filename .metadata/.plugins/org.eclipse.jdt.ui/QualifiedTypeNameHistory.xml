@@ -27,7 +27,6 @@
     <fullyQualifiedTypeName name="p1.Boil"/>
     <fullyQualifiedTypeName name="java.util.Observer"/>
     <fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="Cooks.CookBehavior"/>
     <fullyQualifiedTypeName name="Spices.SpiceDecorator"/>
     <fullyQualifiedTypeName name="Kitchen.Record"/>
@@ -38,7 +37,6 @@
     <fullyQualifiedTypeName name="Dishes.Dish"/>
     <fullyQualifiedTypeName name="java.beans.PropertyChangeSupport"/>
     <fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
@@ -53,4 +51,8 @@
     <fullyQualifiedTypeName name="Model.Query"/>
     <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>
