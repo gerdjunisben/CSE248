@@ -89,8 +89,6 @@ public class College {
 
     public String toString()
     {
-        return id + " " + name + " " + city + " " +zip + " " +
-    getAdmissionRate() + " " + getCompletionRate() + " " + getInStateTuition() + " " +
-    getOutStateTuition();
+        return String.format("%10s , %50s , %20s , %15s , %15s , %20s , %20s",id,name.strip(),city,zip,getAdmissionRate(),getCompletionRate(),getInStateTuition(),getOutStateTuition());
     }
 }

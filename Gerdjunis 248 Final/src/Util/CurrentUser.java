@@ -20,9 +20,9 @@ public class CurrentUser {
 			return currentUser;
 	}
 	
-	public void addCollege(int collegeID)
+	public boolean addCollege(int collegeID)
 	{
-		user.addCollege(collegeID);
+		return user.addCollege(collegeID);
 	}
 	
 	public void removeCollege(int collegeID)

@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class CollegeSearchController implements Initializable {
 
@@ -132,6 +133,12 @@ public class CollegeSearchController implements Initializable {
 		String[] attributes = {"Id","Name","Zip","City","Admission","Completion","InState","OutState"};
 		attributeBox.getItems().addAll(attributes);
 		
+	
+		listArea.setOnMouseClicked((e)->{
+	           	saveText.setText(listArea.getSelectionModel().getSelectedItem().getId());
+	        });
+	    
+		
 	}
 	
 	@FXML
@@ -145,8 +152,11 @@ public class CollegeSearchController implements Initializable {
 			id=0;
 	    	saveText.setText("invalid");
 		}
-		Connect.current.addCollege(id);
-		saveText.setText("saved");
+		boolean success = Connect.current.addCollege(id);
+		if(success == true)
+			saveText.setText("saved");
+		else
+			saveText.setText("saves full");
     }
 	
 	 @FXML
