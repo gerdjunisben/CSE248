@@ -8,6 +8,7 @@ import Model.College;
 import Model.Query;
 import Util.Connect;
 import Util.CurrentUser;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CollegeSearchController implements Initializable {
 
+	@FXML
+	private Button unSaveButton;
+	
 	@FXML
     private Button saveButton;
 
@@ -132,7 +136,17 @@ public class CollegeSearchController implements Initializable {
 	
 	@FXML
     void saveClick(ActionEvent event) {
-		Connect.current.addCollege(Integer.parseInt(saveText.getText()));
+		int id;
+		try {
+			id=Integer.parseInt(saveText.getText());;
+		}
+		catch(Exception e)
+		{
+			id=0;
+	    	saveText.setText("invalid");
+		}
+		Connect.current.addCollege(id);
+		saveText.setText("saved");
     }
 	
 	 @FXML
@@ -140,8 +154,31 @@ public class CollegeSearchController implements Initializable {
 		 listArea.getItems().clear();
 		 LinkedList<College> colleges = Connect.getSavedColleges();
 		 if(colleges!=null)
-			 listArea.getItems().addAll();
+			 listArea.getItems().addAll(colleges);
 	 }
+	 
+	 @FXML
+	 public void exitApplication(ActionEvent event)
+	 {
+		 Platform.exit();
+	 }
+	 
+	 @FXML
+	 void unSaveClick(ActionEvent event) {
+		 int id;
+			try {
+				id=Integer.parseInt(saveText.getText());;
+			}
+			catch(Exception e)
+			{
+				id=0;
+				saveText.setText("invalid");
+			}
+			Connect.current.removeCollege(id);
+			saveText.setText("unsaved");
+	 }
+	 
+	 
 
 }
 

@@ -25,6 +25,11 @@ public class CurrentUser {
 		user.addCollege(collegeID);
 	}
 	
+	public void removeCollege(int collegeID)
+	{
+		user.removeCollege(collegeID);
+	}
+	
 	public void save()
 	{
 		Connect.saveUser(user);

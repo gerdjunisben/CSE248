@@ -31,7 +31,7 @@ public class User {
     public void addCollege(int collegeID)
     {
     	boolean exists = false;
-    	for(int i = 0;i<elems;i++)
+    	for(int i = 0;i<elems-1;i++)
     	{
     		if(list.get(i)==collegeID)
     			exists = true;
@@ -45,14 +45,16 @@ public class User {
     
     public void removeCollege(int id)
     {
-    	for(int i =0;i<elems;i++)
+    	for(int i =0;i<elems-1;i++)
     	{
     		if(list.get(i)==id)
     		{
     			list.remove(i);
     			i--;
+    			elems--;
     		}
     	}
+    	
     }
     
     public int getCollege(int index)

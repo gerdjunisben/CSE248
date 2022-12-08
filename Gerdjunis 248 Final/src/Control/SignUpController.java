@@ -12,16 +12,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SignUpController {
 
     @FXML
-    private TextField passwordBox1;
+    private PasswordField passwordBox1;
 
     @FXML
-    private TextField passwordBox2;
+    private PasswordField passwordBox2;
 
     @FXML
     private Button signInButton;

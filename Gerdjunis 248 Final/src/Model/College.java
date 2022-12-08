@@ -47,7 +47,7 @@ public class College {
 
     public String getAdmissionRate()
     {
-        return admissionRate*100 + "%";
+    	return String.format("%2.2f",admissionRate*100) + "%";
     }
 
     public void setAdmissionRate(double admissionRate)
@@ -57,7 +57,7 @@ public class College {
 
     public String getCompletionRate()
     {
-        return completionRate*100 + "%";
+        return String.format("%2.2f",completionRate*100)+ "%";
     }
 
     public void setCompletionRate(double completionRate)
@@ -67,7 +67,7 @@ public class College {
 
     public String getInStateTuition()
     {
-        return "$" + inStateTuition;
+        return "$" + String.format("%,d",inStateTuition);
     }
 
     public void setInStateTuition(int inStateTuition)
@@ -77,7 +77,7 @@ public class College {
 
     public String getOutStateTuition()
     {
-        return "$" + outStateTuition;
+        return "$" + String.format("%,d",outStateTuition);
     }
 
     public void setOutStateTuition(int outStateTuition)

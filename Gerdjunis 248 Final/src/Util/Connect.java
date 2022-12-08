@@ -137,6 +137,12 @@ public class Connect {
 		}
 	}
 	
+	public static void saveCurrent()
+	{
+		if(current!=null)
+			current.save();
+	}
+	
 	public static void saveUser(User user)
 	{
 		try {
@@ -294,7 +300,7 @@ public class Connect {
 	
 	public static LinkedList<College> getSavedColleges()
 	{
-		//infinite loop, fix
+		
 		Statement statement;
 		LinkedList<College> list = new LinkedList<>();
 		try {
@@ -303,13 +309,14 @@ public class Connect {
 			String query = "SELECT * FROM colleges WHERE (";
 			int i = 0;
 			int id=current.getCollege(i);
-			if(id==-1)
+			
+			if(id==0)
 				return null;
-			while(id!=-1)
+			while(id!=0)
 			{
 				query += "id="+id;
 				id = current.getCollege(++i);
-				if(id!=-1)
+				if(id!=0)
 				{
 					query+= " OR ";
 				}

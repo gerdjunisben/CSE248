@@ -56,4 +56,7 @@
     <fullyQualifiedTypeName name="Util.CurrentUser"/>
     <fullyQualifiedTypeName name="Util.Connect"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="javafx.application.Platform"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
 </qualifiedTypeNameHistroy>
