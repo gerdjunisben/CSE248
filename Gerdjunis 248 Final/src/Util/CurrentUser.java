@@ -20,7 +20,7 @@ public class CurrentUser {
 			return currentUser;
 	}
 	
-	public boolean addCollege(int collegeID)
+	public int addCollege(int collegeID)
 	{
 		return user.addCollege(collegeID);
 	}

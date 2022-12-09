@@ -41,7 +41,7 @@ public class Connect {
 			statement.executeUpdate(
 			"CREATE TABLE colleges (ID INT(20) PRIMARY KEY, Name varchar(255), "+
 			"City varchar(255), Zip varchar(255),Admission DOUBLE(5,2),Completion DOUBLE(5,2),"+
-			"InState INT(10),OutState INT(10))");
+			"InState INT(10),OutState INT(10),Population INT(15), Ownership varchar(10))");
 			
 			/*
 			statement.executeUpdate("DROP TABLE IF EXISTS users"); 
@@ -105,11 +105,18 @@ public class Connect {
 						JsonNode completionNode = jsonNameNode.get("latest.completion.completion_rate_4yr_150nt");
 						JsonNode inStateNode = jsonNameNode.get("latest.cost.tuition.in_state");
 						JsonNode outStateNode = jsonNameNode.get("latest.cost.tuition.out_of_state");
+						JsonNode populationNode = jsonNameNode.get("latest.student.size");
+						JsonNode ownershipNode = jsonNameNode.get("latest.school.ownership");
+						String ownership;
+						if(ownershipNode.asInt()==1)
+							ownership="public";
+						else
+							ownership="private";
 						statement.executeUpdate(
-						"INSERT INTO colleges (ID,Name,City,Zip,Admission,Completion,InState,OutState) "+
+						"INSERT INTO colleges (ID,Name,City,Zip,Admission,Completion,InState,OutState,population,ownership) "+
 						"VALUES ('"+idNode.asInt()+"','"+collegeName+"','"+cityName+"','"+zipNode.asText()+"','"+
 						admissionNode.asDouble()+"','"+completionNode.asDouble()+"','"+inStateNode.asInt()+"','"+
-						outStateNode.asInt()+"')");
+						outStateNode.asInt()+"','"+populationNode.asInt()+"','"+ ownership+"')");
 					}
 					
 				}
@@ -286,7 +293,7 @@ public class Connect {
 			while(rs.next())
 			{
 
-				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState")));
+				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState"),rs.getInt("Population"),rs.getString("Ownership")));
 				
 				
 			}
@@ -330,7 +337,7 @@ public class Connect {
 			while(rs.next())
 			{
 
-				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState")));
+				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState"),rs.getInt("Population"),rs.getString("Ownership")));
 				
 				
 			}
@@ -354,7 +361,7 @@ public class Connect {
 			while(rs.next())
 			{
 
-				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState")));
+				list.add(new College(rs.getString("ID"),rs.getString("Name"),rs.getString("City"),rs.getString("Zip"),rs.getDouble("Admission"),rs.getDouble("Completion"),rs.getInt("InState"),rs.getInt("OutState"),rs.getInt("Population"),rs.getString("Ownership")));
 				
 				
 			}

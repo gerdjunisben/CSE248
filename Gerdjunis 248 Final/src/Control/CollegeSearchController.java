@@ -64,14 +64,15 @@ public class CollegeSearchController implements Initializable {
     void addClick(ActionEvent event) {
     	if(attributeBox.getValue() != null && (queryText.getText()!= null || !queryText.getText().equals("")))
     	{
+    		String queryString = queryText.getText();
     		char type;
     		if(attributeBox.getValue().equals("Admission") || attributeBox.getValue().equals("Completion"))
     			type = 'd';
-    		else if(attributeBox.getValue().equals("InState") || attributeBox.getValue().equals("OutState"))
+    		else if(attributeBox.getValue().equals("InState") || attributeBox.getValue().equals("OutState")||attributeBox.getValue().equals("Population"))
     			type='i';
     		else
     			type='s';
-    		Query query = new Query(attributeBox.getValue(),queryText.getText(),type);
+    		Query query = new Query(attributeBox.getValue(),queryString,type);
     		ObservableList<Query> list = searchTable.getItems();
     		boolean exists = false;
     		for(int i = 0;i<list.size();i++)
@@ -130,7 +131,7 @@ public class CollegeSearchController implements Initializable {
                 new PropertyValueFactory<Query, String>("attribute"));
 		query.setCellValueFactory(
                 new PropertyValueFactory<Query, String>("query"));
-		String[] attributes = {"Id","Name","Zip","City","Admission","Completion","InState","OutState"};
+		String[] attributes = {"Id","Name","Zip","City","Admission","Completion","InState","OutState","Population","Ownership"};
 		attributeBox.getItems().addAll(attributes);
 		
 	
@@ -152,11 +153,13 @@ public class CollegeSearchController implements Initializable {
 			id=0;
 	    	saveText.setText("invalid");
 		}
-		boolean success = Connect.current.addCollege(id);
-		if(success == true)
+		int success = Connect.current.addCollege(id);
+		if(success == 1)
 			saveText.setText("saved");
-		else
+		else if(success==-1)
 			saveText.setText("saves full");
+		else
+			saveText.setText("already saved");
     }
 	
 	 @FXML
@@ -164,7 +167,11 @@ public class CollegeSearchController implements Initializable {
 		 listArea.getItems().clear();
 		 LinkedList<College> colleges = Connect.getSavedColleges();
 		 if(colleges!=null)
+		 {
+			 
 			 listArea.getItems().addAll(colleges);
+		 }
+		 
 	 }
 	 
 	 @FXML

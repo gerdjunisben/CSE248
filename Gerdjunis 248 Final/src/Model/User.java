@@ -28,7 +28,7 @@ public class User {
     	return id;
     }
     
-    public boolean addCollege(int collegeID)
+    public int addCollege(int collegeID)
     {
     	boolean exists = false;
     	for(int i = 0;i<elems-1;i++)
@@ -40,10 +40,17 @@ public class User {
     	{
     		list.add(collegeID);
         	elems++;
-        	return true;
+        	return 1;
     	}
     	
-    	return false;
+    	if(exists)
+    	{
+    		return 0;
+    	}
+    	else
+    	{
+    		return -1;
+    	}
     }
     
     public void removeCollege(int id)

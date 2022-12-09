@@ -10,10 +10,13 @@ public class College {
     private double completionRate;
     private int inStateTuition;
     private int outStateTuition;
+    private int population;
+    private String ownership;
     
 
     public College(String id,String name,String city,String zip,
-    double admissionRate,double completionRate,int inStateTuition,int outStateTuition)
+    double admissionRate,double completionRate,int inStateTuition,int outStateTuition
+    ,int population, String ownership)
     {
         this.id=id;
         this.name=name;
@@ -23,6 +26,8 @@ public class College {
         this.completionRate = completionRate;
         this.inStateTuition = inStateTuition;
         this.outStateTuition = outStateTuition;
+        this.population = population;
+        this.ownership = ownership;
     }
 
     public String getId()
@@ -86,9 +91,26 @@ public class College {
     }
     
     
+    
 
-    public String toString()
+    public String getOwnership() {
+		return ownership;
+	}
+
+	public void setOwnership(String ownership) {
+		this.ownership = ownership;
+	}
+
+	public String getPopulation() {
+		return String.format("%,d",population);
+	}
+
+	public void setPopulation(int population) {
+		this.population = population;
+	}
+
+	public String toString()
     {
-        return String.format("%10s , %50s , %20s , %15s , %15s , %20s , %20s",id,name.strip(),city,zip,getAdmissionRate(),getCompletionRate(),getInStateTuition(),getOutStateTuition());
+        return String.format("Id:%-10s,Name:%-50s,City:%-20s,Zip:%-15s,Admission:%-15s,Completion:%-15s,InState Tuition:%-20s,OutState Tuition:%-20s,Population:%-10s,Ownership:%-10s",id,name,city,zip,getAdmissionRate(),getCompletionRate(),getInStateTuition(),getOutStateTuition(),getPopulation(),getOwnership());
     }
 }

@@ -9,15 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.CollegeSearchController">
+<AnchorPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.CollegeSearchController">
    <children>
-      <Pane prefHeight="400.0" prefWidth="700.0">
+      <Pane prefHeight="400.0" prefWidth="760.0">
          <children>
-            <ListView fx:id="listArea" layoutX="250.0" layoutY="14.0" prefHeight="369.0" prefWidth="432.0" />
-            <TextField fx:id="queryText" layoutX="102.0" layoutY="11.0" prefHeight="25.0" prefWidth="139.0" promptText="Type query here" />
-            <Button fx:id="addButton" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" onAction="#addClick" prefHeight="25.0" prefWidth="229.0" text="add" />
-            <ComboBox fx:id="attributeBox" layoutX="12.0" layoutY="11.0" prefHeight="25.0" prefWidth="83.0" />
-            <TableView fx:id="searchTable" layoutX="27.0" layoutY="186.0" prefHeight="200.0" prefWidth="200.0">
+            <ListView fx:id="listArea" layoutX="314.0" layoutY="11.0" prefHeight="369.0" prefWidth="432.0" stylesheets="@styles.css" />
+            <TextField fx:id="queryText" layoutX="158.0" layoutY="11.0" prefHeight="25.0" prefWidth="139.0" promptText="Type query here" />
+            <Button fx:id="addButton" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" onAction="#addClick" prefHeight="25.0" prefWidth="285.0" text="add" />
+            <ComboBox fx:id="attributeBox" layoutX="12.0" layoutY="11.0" prefHeight="25.0" prefWidth="139.0" />
+            <TableView fx:id="searchTable" layoutX="14.0" layoutY="186.0" prefHeight="200.0" prefWidth="279.0">
               <columns>
                 <TableColumn fx:id="attribute" prefWidth="75.0" text="Attribute" />
                 <TableColumn fx:id="query" prefWidth="75.0" text="Query" />
@@ -26,10 +26,10 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button fx:id="removeButton" layoutX="12.0" layoutY="73.0" mnemonicParsing="false" onAction="#removeClick" prefHeight="25.0" prefWidth="229.0" text="remove" />
-            <TextField fx:id="saveText" layoutX="95.0" layoutY="113.0" prefHeight="25.0" prefWidth="139.0" promptText="Type id of college here" />
+            <Button fx:id="removeButton" layoutX="12.0" layoutY="73.0" mnemonicParsing="false" onAction="#removeClick" prefHeight="25.0" prefWidth="285.0" text="remove" />
+            <TextField fx:id="saveText" layoutX="95.0" layoutY="113.0" prefHeight="25.0" prefWidth="200.0" promptText="Type id of college here" />
             <Button fx:id="saveButton" layoutX="12.0" layoutY="100.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="25.0" prefWidth="69.0" text="Save" />
-            <Button fx:id="showButton" layoutX="12.0" layoutY="153.0" mnemonicParsing="false" onAction="#showClick" prefHeight="25.0" prefWidth="229.0" text="show my saved" />
+            <Button fx:id="showButton" layoutX="12.0" layoutY="153.0" mnemonicParsing="false" onAction="#showClick" prefHeight="25.0" prefWidth="279.0" text="show my saved" />
             <Button fx:id="unSaveButton" layoutX="12.0" layoutY="126.0" mnemonicParsing="false" onAction="#unSaveClick" prefHeight="25.0" prefWidth="69.0" text="Unsave" />
          </children>
       </Pane>
