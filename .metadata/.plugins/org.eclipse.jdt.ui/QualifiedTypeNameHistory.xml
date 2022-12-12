@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javafx.application.Application"/>
-    <fullyQualifiedTypeName name="model.StringBag"/>
-    <fullyQualifiedTypeName name="app.Main"/>
-    <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
-    <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
-    <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
     <fullyQualifiedTypeName name="p1.Swan"/>
     <fullyQualifiedTypeName name="p1.CookBehavior"/>
     <fullyQualifiedTypeName name="p1.SpiceBehavior"/>
@@ -49,15 +43,21 @@
     <fullyQualifiedTypeName name="Model.Query"/>
     <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
-    <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="Util.CurrentUser"/>
     <fullyQualifiedTypeName name="Util.Connect"/>
-    <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="javafx.application.Platform"/>
     <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
     <fullyQualifiedTypeName name="javafx.scene.input.MouseEvent"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.ArrayBlockingQueue"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.BlockingQueue"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.LinkedBlockingQueue"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
 </qualifiedTypeNameHistroy>
