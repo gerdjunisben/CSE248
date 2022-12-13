@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Model.College;
 import Model.Query;
+import Model.StringQuery;
 import Model.User;
 import javafx.collections.ObservableList;
 /**
@@ -336,7 +337,7 @@ public class Connect {
 	}
 	
 	/**
-	 * returns a LinkedList of all Colleges obtained with the queries using the list of {@link Model.Query}
+	 * returns a LinkedList of all Colleges obtained with the queries using the list of {@link Model.StringQuery}
 	 * @param observableList
 	 * @return LinkedList<College>
 	 */

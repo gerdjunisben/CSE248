@@ -55,6 +55,11 @@
 		<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L1-Javadoc\javadoc.xml"/>
 		<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\GerdjunisFinal248\javadoc"/>
 		<section name="projects">
+			<section name="L8-Decorator Design Pattern">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L8-Decorator Design Pattern\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L8-Decorator Design Pattern\javadoc.xml"/>
+			</section>
 			<section name="L5-Chen&apos;s Ducks">
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L5-Chen&apos;s Ducks\doc"/>
@@ -80,50 +85,15 @@
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L1-Javadoc\src\p1\javadoc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L1-Javadoc\javadoc.xml"/>
 			</section>
-			<section name="L9-Singleton Design Pattern">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L9-Singleton Design Pattern\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L9-Singleton Design Pattern\javadoc.xml"/>
-			</section>
-			<section name="L12-Adapter Design Pattern">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L12-Adapter Design Pattern\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L12-Adapter Design Pattern\javadoc.xml"/>
-			</section>
-			<section name="L15-Multi-Threading">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L15-Multi-Threading\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L15-Multi-Threading\javadoc.xml"/>
-			</section>
-			<section name="GerdjunisFinal248">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\GerdjunisFinal248\javadoc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L1-Javadoc\javadoc.xml"/>
-			</section>
-			<section name="Hello">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\Hello\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\Hello\javadoc.xml"/>
-			</section>
-			<section name="RESTful API for College Data">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\CSE248-main\RESTful API for College Data\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\CSE248-main\RESTful API for College Data\javadoc.xml"/>
-			</section>
-			<section name="Resaurant HW">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\Resaurant HW\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\Resaurant HW\javadoc.xml"/>
-			</section>
-			<section name="L8-Decorator Design Pattern">
-				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L8-Decorator Design Pattern\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L8-Decorator Design Pattern\javadoc.xml"/>
-			</section>
 			<section name="L17-Thread Pool">
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L17-Thread Pool\doc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L17-Thread Pool\javadoc.xml"/>
+			</section>
+			<section name="L9-Singleton Design Pattern">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L9-Singleton Design Pattern\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L9-Singleton Design Pattern\javadoc.xml"/>
 			</section>
 			<section name="L13-Composit Design Pattern">
 				<item key="href" value=""/>
@@ -135,25 +105,45 @@
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L14-Facade Design Pattern\doc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L14-Facade Design Pattern\javadoc.xml"/>
 			</section>
+			<section name="L12-Adapter Design Pattern">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L12-Adapter Design Pattern\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L12-Adapter Design Pattern\javadoc.xml"/>
+			</section>
+			<section name="L15-Multi-Threading">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L15-Multi-Threading\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L15-Multi-Threading\javadoc.xml"/>
+			</section>
 			<section name="Tutor Stuff">
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\Tutor Stuff\doc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\Tutor Stuff\javadoc.xml"/>
 			</section>
-			<section name="Gerdjunis Final Project">
+			<section name="GerdjunisFinal248">
 				<item key="href" value=""/>
-				<item key="destdir" value="C:\Users\green\Documents\CSE218\cse218\Gerdjunis Final Project\doc"/>
-				<item key="antpath" value="C:\Users\green\Documents\CSE218\cse218\Gerdjunis Final Project\javadoc.xml"/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\GerdjunisFinal248\javadoc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L1-Javadoc\javadoc.xml"/>
 			</section>
 			<section name="L2-Scene Builder">
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L2-Scene Builder\doc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L2-Scene Builder\javadoc.xml"/>
 			</section>
+			<section name="Hello">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\Hello\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\Hello\javadoc.xml"/>
+			</section>
 			<section name="L4-SQLite intro">
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L4-SQLite intro\doc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L4-SQLite intro\javadoc.xml"/>
+			</section>
+			<section name="RESTful API for College Data">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\CSE248-main\RESTful API for College Data\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\CSE248-main\RESTful API for College Data\javadoc.xml"/>
 			</section>
 			<section name="L7-Observer Design Pattern">
 				<item key="href" value=""/>
@@ -164,6 +154,11 @@
 				<item key="href" value=""/>
 				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\L10-Factory Design Pattern\doc"/>
 				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\L10-Factory Design Pattern\javadoc.xml"/>
+			</section>
+			<section name="Resaurant HW">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\green\Documents\CSE248\cse248\Resaurant HW\doc"/>
+				<item key="antpath" value="C:\Users\green\Documents\CSE248\cse248\Resaurant HW\javadoc.xml"/>
 			</section>
 			<section name="L16-Synchronization">
 				<item key="href" value=""/>

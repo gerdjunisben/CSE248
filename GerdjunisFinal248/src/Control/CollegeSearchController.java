@@ -4,8 +4,12 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
+import Model.BasicQuery;
 import Model.College;
+import Model.NumericQuery;
 import Model.Query;
+import Model.QueryDecorator;
+import Model.StringQuery;
 import Util.Connect;
 import Util.CurrentUser;
 import javafx.application.Platform;
@@ -78,15 +82,19 @@ public class CollegeSearchController implements Initializable {
     void addClick(ActionEvent event) {
     	if(attributeBox.getValue() != null && (queryText.getText()!= null || !queryText.getText().equals("")))
     	{
-    		String queryString = queryText.getText();
-    		char type;
-    		if(attributeBox.getValue().equals("Admission") || attributeBox.getValue().equals("Completion"))
-    			type = 'd';
-    		else if(attributeBox.getValue().equals("InState") || attributeBox.getValue().equals("OutState")||attributeBox.getValue().equals("Population"))
-    			type='i';
+    		BasicQuery query = new BasicQuery(attributeBox.getValue(),queryText.getText());
+    		QueryDecorator decoratedQuery;
+    		String sign = ">=";
+    		if(query.getAttribute().equals("Id") || query.getAttribute().equals("Admission") 
+    				|| query.getAttribute().equals("Completion") || query.getAttribute().equals("Instate")||
+    				query.getAttribute().equals("OutState") || query.getAttribute().equals("Population"))
+    		{
+    			decoratedQuery = new NumericQuery(query,sign);
+    		}
     		else
-    			type='s';
-    		Query query = new Query(attributeBox.getValue(),queryString,type);
+    		{
+    			decoratedQuery = new StringQuery(query);
+    		}
     		ObservableList<Query> list = searchTable.getItems();
     		boolean exists = false;
     		for(int i = 0;i<list.size();i++)
@@ -98,7 +106,7 @@ public class CollegeSearchController implements Initializable {
     		}
     		if(!exists)
     		{
-    			list.add(query);
+    			list.add(decoratedQuery);
     			searchTable.setItems(list);
     		}
     	}
