@@ -37,6 +37,7 @@ public class Connect {
 	/**
 	 * updates the colleges table in the sqlite database using the query from {@link Control.SignInController}'s
 	 * initialization 
+	 * this is used for development purposes and is unused in this program
 	 */
 	public static void fillDataBase() 
 	{
@@ -305,6 +306,33 @@ public class Connect {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	/**
+	 * returns true if the id exists in the db and false otherwise
+	 * @param id
+	 * @return boolean
+	 */
+	public static boolean doesCollegeExist(int id)
+	{
+		
+		try {
+			Statement statement;
+			statement = db.createStatement();
+			statement.setQueryTimeout(30);
+			String query = "SELECT * FROM colleges WHERE id=" + id;
+
+			ResultSet rs = statement.executeQuery(query);
+			
+			if(rs.next())
+				return true;
+			else
+				return false;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**

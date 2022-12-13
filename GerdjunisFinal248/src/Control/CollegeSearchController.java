@@ -185,8 +185,11 @@ public class CollegeSearchController implements Initializable {
 	    	saveText.setText("invalid");
 		}
 		int success = Connect.current.addCollege(id);
+		System.out.println(success);
 		if(success == 1)
 			saveText.setText("saved");
+		else if(success==-2)
+			saveText.setText("id doesn't exist");
 		else if(success==-1)
 			saveText.setText("saves full");
 		else
