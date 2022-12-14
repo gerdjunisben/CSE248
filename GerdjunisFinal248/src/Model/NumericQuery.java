@@ -11,7 +11,7 @@ public class NumericQuery extends QueryDecorator {
 	
 	public String toString()
 	{
-		return query.toString() + " "+ symbol + " " + query.getQuery();
+		return query.toString() + " "+ symbol + " " + Double.parseDouble(query.getQuery());
 	}
 
 	@Override

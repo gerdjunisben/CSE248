@@ -93,7 +93,7 @@ public class College {
      */
     public String getAdmissionRate()
     {
-    	return String.format("%2.2f",admissionRate*100) + "%";
+    	return String.format("%2.2f",admissionRate) + "%";
     }
 
     /**
@@ -111,7 +111,7 @@ public class College {
      */
     public String getCompletionRate()
     {
-        return String.format("%2.2f",completionRate*100)+ "%";
+        return String.format("%2.2f",completionRate)+ "%";
     }
 
     /**

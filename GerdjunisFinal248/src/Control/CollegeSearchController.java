@@ -36,6 +36,9 @@ import javafx.scene.input.MouseEvent;
  *
  */
 public class CollegeSearchController implements Initializable {
+	
+	@FXML
+	private ComboBox<String> signBox;
 
 	@FXML
 	private Button unSaveButton;
@@ -82,14 +85,23 @@ public class CollegeSearchController implements Initializable {
     void addClick(ActionEvent event) {
     	if(attributeBox.getValue() != null && (queryText.getText()!= null || !queryText.getText().equals("")))
     	{
+    		boolean invalidSign = false;
     		BasicQuery query = new BasicQuery(attributeBox.getValue(),queryText.getText());
-    		QueryDecorator decoratedQuery;
-    		String sign = ">=";
+    		QueryDecorator decoratedQuery = null;
     		if(query.getAttribute().equals("Id") || query.getAttribute().equals("Admission") 
-    				|| query.getAttribute().equals("Completion") || query.getAttribute().equals("Instate")||
+    				|| query.getAttribute().equals("Completion") || query.getAttribute().equals("InState")||
     				query.getAttribute().equals("OutState") || query.getAttribute().equals("Population"))
     		{
-    			decoratedQuery = new NumericQuery(query,sign);
+    			String sign = signBox.getValue();
+    			if(sign!=null)
+    			{
+    				decoratedQuery = new NumericQuery(query,sign);
+    			}
+    			else
+    			{
+    				queryText.setText("Invalid sign");
+    				invalidSign=true;
+    			}
     		}
     		else
     		{
@@ -104,7 +116,7 @@ public class CollegeSearchController implements Initializable {
     				exists=true;
     			}
     		}
-    		if(!exists)
+    		if(!exists && !invalidSign)
     		{
     			list.add(decoratedQuery);
     			searchTable.setItems(list);
@@ -166,12 +178,27 @@ public class CollegeSearchController implements Initializable {
 		query.setCellValueFactory(
                 new PropertyValueFactory<Query, String>("query"));
 		String[] attributes = {"Id","Name","Zip","City","Admission","Completion","InState","OutState","Population","Ownership"};
+		String[] signs = {">=","<=","="};
 		attributeBox.getItems().addAll(attributes);
+		signBox.getItems().addAll(signs);
 		
 	
 		listArea.setOnMouseClicked((e)->{
 	           	saveText.setText(listArea.getSelectionModel().getSelectedItem().getId());
 	        });
+		
+		attributeBox.valueProperty().addListener((e)->{
+			if(attributeBox.getValue().equals("Id") || attributeBox.getValue().equals("Admission") 
+    				|| attributeBox.getValue().equals("Completion") || attributeBox.getValue().equals("InState")||
+    				attributeBox.getValue().equals("OutState") || attributeBox.getValue().equals("Population"))
+    		{
+    			signBox.setVisible(true);
+    		}
+    		else
+    		{
+    			signBox.setVisible(false);
+    		}
+		});
 	    
 		
 	}

@@ -117,7 +117,9 @@ public class Connect {
 						JsonNode zipNode = jsonNameNode.get("school.zip");
 						String collegeName = nameNode.asText().replace("'", "");
 						JsonNode admissionNode = jsonNameNode.get("latest.admissions.admission_rate.overall");
+						double admission = admissionNode.asDouble()*100;
 						JsonNode completionNode = jsonNameNode.get("latest.completion.completion_rate_4yr_150nt");
+						double completion = completionNode.asDouble()*100;
 						JsonNode inStateNode = jsonNameNode.get("latest.cost.tuition.in_state");
 						JsonNode outStateNode = jsonNameNode.get("latest.cost.tuition.out_of_state");
 						JsonNode populationNode = jsonNameNode.get("latest.student.size");
@@ -130,7 +132,7 @@ public class Connect {
 						statement.executeUpdate(
 						"INSERT INTO colleges (ID,Name,City,Zip,Admission,Completion,InState,OutState,population,ownership) "+
 						"VALUES ('"+idNode.asInt()+"','"+collegeName+"','"+cityName+"','"+zipNode.asText()+"','"+
-						admissionNode.asDouble()+"','"+completionNode.asDouble()+"','"+inStateNode.asInt()+"','"+
+						admission+"','"+completion+"','"+inStateNode.asInt()+"','"+
 						outStateNode.asInt()+"','"+populationNode.asInt()+"','"+ ownership+"')");
 					}
 					
