@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="p1.Fish"/>
     <fullyQualifiedTypeName name="p1.Grill"/>
     <fullyQualifiedTypeName name="p1.Cinnamon"/>
     <fullyQualifiedTypeName name="p1.Garlic"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="Model.NumericQuery"/>
     <fullyQualifiedTypeName name="Model.QueryDecorator"/>
     <fullyQualifiedTypeName name="Model.Query"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.StringUtils"/>
 </qualifiedTypeNameHistroy>

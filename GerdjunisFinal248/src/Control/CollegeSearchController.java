@@ -86,6 +86,7 @@ public class CollegeSearchController implements Initializable {
     	if(attributeBox.getValue() != null && (queryText.getText()!= null || !queryText.getText().equals("")))
     	{
     		boolean invalidSign = false;
+    		boolean isNumeric = true;
     		BasicQuery query = new BasicQuery(attributeBox.getValue(),queryText.getText());
     		QueryDecorator decoratedQuery = null;
     		if(query.getAttribute().equals("Id") || query.getAttribute().equals("Admission") 
@@ -93,9 +94,21 @@ public class CollegeSearchController implements Initializable {
     				query.getAttribute().equals("OutState") || query.getAttribute().equals("Population"))
     		{
     			String sign = signBox.getValue();
-    			if(sign!=null)
+    			try {
+    				Double.parseDouble(query.getQuery());
+    				isNumeric=true;
+    			}
+    			catch(Exception e)
+    			{
+    				isNumeric = false;
+    			}
+    			if(sign!=null && isNumeric)
     			{
     				decoratedQuery = new NumericQuery(query,sign);
+    			}
+    			else if(!isNumeric)
+    			{
+    				queryText.setText("Invalid query");
     			}
     			else
     			{
@@ -116,7 +129,7 @@ public class CollegeSearchController implements Initializable {
     				exists=true;
     			}
     		}
-    		if(!exists && !invalidSign)
+    		if(!exists && !invalidSign && isNumeric)
     		{
     			list.add(decoratedQuery);
     			searchTable.setItems(list);
@@ -184,7 +197,14 @@ public class CollegeSearchController implements Initializable {
 		
 	
 		listArea.setOnMouseClicked((e)->{
-	           	saveText.setText(listArea.getSelectionModel().getSelectedItem().getId());
+				try
+				{
+					saveText.setText(listArea.getSelectionModel().getSelectedItem().getId());
+				}
+				catch(Exception ex)
+				{
+					saveText.setText("Invalid cell");
+				}
 	        });
 		
 		attributeBox.valueProperty().addListener((e)->{

@@ -13,7 +13,7 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="818.0">
          <children>
-            <ListView fx:id="listArea" layoutX="372.0" layoutY="11.0" prefHeight="369.0" prefWidth="432.0" stylesheets="@styles.css" />
+            <ListView fx:id="listArea" layoutX="372.0" layoutY="11.0" prefHeight="369.0" prefWidth="432.0" />
             <TextField fx:id="queryText" layoutX="214.0" layoutY="11.0" prefHeight="25.0" prefWidth="139.0" promptText="Type query here" />
             <Button fx:id="addButton" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" onAction="#addClick" prefHeight="25.0" prefWidth="343.0" text="add" />
             <ComboBox fx:id="attributeBox" layoutX="12.0" layoutY="11.0" prefHeight="25.0" prefWidth="119.0" />
