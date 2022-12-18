@@ -182,20 +182,27 @@ public class Connect {
 			String s = "UPDATE savedList SET ";
 			int index =0;
 			int college = user.getCollege(index);
-			
-			while(college!=0)
+			if(college!=0)
 			{
-				if(index>0)
-					s+= ",";
-				s += "save" + (index+1) + "='" + user.getCollege(index) + "'";
-				
-				index++;
-				college = user.getCollege(index);
-				
+				while(college!=0)
+				{
+					if(index>0)
+						s+= ",";
+					s += "save" + (index+1) + "='" + user.getCollege(index) + "'";
+					
+					index++;
+					college = user.getCollege(index);
+					
+				}
+				s += " WHERE id=" +user.getID();
+				System.out.println(s);
+				statement.executeUpdate(s);
 			}
-			s += " WHERE id=" +user.getID();
-			System.out.println(s);
-			statement.executeUpdate(s);
+			else
+			{
+				System.out.println("nothing to save");
+			}
+			
 			
 			
 			

@@ -1,13 +1,13 @@
 package Model;
 
 /**
- * The data model for queries
- * @see <A href="C:/Users/green/Documents/CSE248/cse248/GerdjunisFinal248/src/Model/Query.java"> 
+ * A basic model for query
+ * @see <A href="C:/Users/green/Documents/CSE248/cse248/GerdjunisFinal248/src/Model/BasicQuery.java"> 
  * Java Source Code
  * </A/>
  * @author Benjamin Gerdjunis <A href="mailto:benjamingerdjunis@gmail.com"> (benjamingerdjunis@gmail.com)
  * </A/>
- * @version December 11th, 2022
+ * @version December 17th, 2022
  *
  */
 public class BasicQuery extends Query {
@@ -59,7 +59,7 @@ public class BasicQuery extends Query {
 	}
 	
 	/**
-	 * returns Query as a String
+	 * returns the object as a String
 	 * @return String
 	 */
 	public String toString()
